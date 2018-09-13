@@ -1,0 +1,79 @@
+<h1 class="uk-heading-line uk-text-center"><span>Heading Line</span></h1>
+<br>
+<br>
+
+
+<div class="uk-child-width-expand@s uk-text-center" uk-grid>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body">
+            <h2>Games that are great</h2>
+
+            <ul>
+                {{#each burgers}}
+                        {{#unless bad}}
+                            <li>
+                            {{name}}
+                            </li>
+                        {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body">
+            <h2>Add a Game</h2>
+            <form class="create-form" action="/newGame" method="POST">
+
+            <div class="form-group">
+                <label for="gameName">Game Name:</label>
+                <input type="text" id="gameName" name="newGame">
+            </div>
+
+            {{!-- <div class="form-group">
+                <label for="bad">Bad?</label><br>
+                <input type="radio" name="bad" value="1" checked> Bad!<br>
+                <input type="radio" name="bad" value="0"> Good
+            </div> --}}
+
+            <button type="submit">Add Game</button>
+            </form>
+
+        </div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body">
+            <h2>Games that are terrible </h2>
+
+            <ul>
+            {{#each burgers}}
+                {{#unless put}}
+                    {{#if bad}}
+                        <li>
+                        {{name}}
+                        </li>
+                    {{/if}}
+                {{/unless}}
+            {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="uk-grid-collapse uk-child-width-expand@s uk-text-center" uk-grid>
+    <div>
+        <div class="uk-background-muted uk-padding"></div>
+    </div>
+    <div>
+        <div class="uk-background-primary uk-padding uk-light">
+            {{#each burgers}}
+                {{#if put}}
+                    {{name}}
+                {{/if}}
+            {{/each}}
+        </div>
+    </div>
+    <div>
+        <div class="uk-background-muted uk-padding uk-padding"></div>
+    </div>
+</div>
+
