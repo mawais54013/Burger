@@ -1,0 +1,10 @@
+html, body
+{
+    height: 760px;
+    background-image: url("/assets/images/img1.gif");
+    background-size: contain;
+}
+span
+{
+    color: white;
+}

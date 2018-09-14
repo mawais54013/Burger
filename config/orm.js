@@ -9,7 +9,7 @@ function printQuestionMarks(num) {
   
     return arr.toString();
   }
-
+// this is used to turn to SQL 
   function objToSQL(ob)
   {
       var arr = [];
@@ -30,9 +30,9 @@ function printQuestionMarks(num) {
   }
 
   var orm = {
+    // this selects from the database and returns all the values 
       selectAll: function(tableInput, cb)
       {
-        // console.log(tableInput);
         var queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function(err, result)
         {
@@ -43,7 +43,7 @@ function printQuestionMarks(num) {
             cb(result);
         });
       },
-
+      // this inserts into a database with values as a new entry
       insertOne: function(table, cols, vals, cb)
       {
         var queryString = "INSERT INTO " + table;
@@ -65,7 +65,7 @@ function printQuestionMarks(num) {
             cb(result);
           });
       },
-
+      // this updates the database from the id of the game and changes the condition which is in the games.js
       updateOne: function(table, objCols, condition, cb)
       {
         var queryString = "UPDATE " + table;
